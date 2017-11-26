@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue购物车</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/car.css">
+</head>
+<body>
+    <div id="app">
+        <div class="car">
+            <table>
+                <caption>购物车</caption>
+                <thead>
+                    <tr>
+                        <th>商品信息</th>
+                        <th>商品金额</th>
+                        <th>商品数量</th>
+                        <th>总金额</th>
+                        <th>编辑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in productList">
+                        <td >
+                            <div class="car-item clearfix" >
+                                <div class="item-check">
+                                    <a href="jacascript:void 0" v-bind:class="{'check':item.check}" @click="selectedItem(item)" ></a>
+                                </div>
+                                <div class="item-pic">
+                                    <img v-bind:src="item.productImage" alt="">
+                                </div>
+                                <div class="item-info">
+                                    <div class="item-name">
+                                        {{item.productName}}
+                                    </div>
+                                    <div class="item-include" >
+                                        赠送：<p v-for="v in item.parts">{{v.partsName}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="car-item-price">{{item.productPrice|formatMoney}}</td>
+                        <td class="car-item-num">
+                            <a href="javascript:void 0" @click="changeNum(item,-1)">-</a>
+                            <input type="text" value="0" class="num" disabled v-model="item.productQuantity">
+                            <a href="javascript:void 0" @click="changeNum(item,1)">+</a>
+                        </td>
+                        <td class="car-item-total">{{item.productPrice*item.productQuantity | formatMoney}}</td>
+                        <td>
+                            <button class="btn" @click="deleteItem(item)">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <footer class="car-footer clearfix">
+                <div class="car-foot-l fl">
+                    <button class="btn" @click="selectedAll(true)">全选</button>
+                    <button class="btn" @click="selectedAll(false)">取消全选</button>
+                </div>
+                <div class="car-foot-r fr ">
+                    <a href="address.html" class="fr btn">结账</a>
+                    <div  class="fr" ><span style="padding-right:20px">总计：{{totalMoney|formatMoney}}</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="js/lib/vue.min.js"></script>
+    <script src="js/lib/vue-resource.js"></script>
+    <script src="js/main.js">
+    </script>
+</body>
+</html>

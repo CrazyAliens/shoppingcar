@@ -1,0 +1,74 @@
+#app{
+    width: 1280px;
+    margin: 0 auto;
+}
+.car table{
+    width: 100%;
+}
+.car>table caption{
+    width: 100%;
+    padding: 8px 0;
+    font:bold 28px/40px "";
+    text-align: center;
+    letter-spacing: 4px;
+}
+.car>table tr>th{
+    height: 54px;
+    font: 18px/54px "";
+    color: white;
+    background-color:#605F5F;
+    text-align: center;
+}
+.car>table tr>td{
+    text-align: center;
+    padding: 36px 0;
+}
+.car>table tr>td:nth-child(1),
+.car>table tr>th:nth-child(1)
+{
+    width: 50%;
+}
+.car .car-item .item-check{
+    float: left;
+    padding: 28px 0 28px 22px;
+}
+.car .car-item .item-check .check{
+    background-color: orangered;
+}
+.car .car-item .item-check>a{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+}
+.car .car-item .item-pic{
+    float: left;
+    width: 80px;
+    height: 72px;
+    margin-left: 22px;
+    border: 1px solid #e9e9e9;
+}
+.car .car-item .item-pic img{
+    width: 80px;
+    height: 72px;
+}
+.car .car-item .item-info{
+    float: left;
+    text-align: left;
+    padding-left: 20px;
+}
+.car .car-item .item-info .item-name{
+    min-height: 58px;
+}
+#app .car .car-item-num .num{
+}
+.car>table tbody{
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.car .car-footer{
+    height: 54px;
+    font: 18px/54px "";
+    text-align:center;
+}
